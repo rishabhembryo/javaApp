@@ -49,9 +49,7 @@ pipeline {
                export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
                export PATH=$JAVA_HOME/bin:$PATH
 
-               cd $APP_PATH
-
-               nohup java -jar demo-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+               nohup sh -c "cd $APP_PATH && java -jar demo-0.0.1-SNAPSHOT.jar > app.log 2>&1" &
                '''
            }
        }
