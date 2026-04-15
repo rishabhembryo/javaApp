@@ -37,6 +37,21 @@ pipeline {
                 '''
             }
         }
+        stage('Backup Old JAR') {
+            steps {
+                sh '''
+                if [ -f $APP_PATH/demo-0.0.1-SNAPSHOT.jar ]; then
+                    DATE=$(date +%d%m%Y_%H%M%S)
+                    echo "Backing up existing JAR..."
+
+                    mv $APP_PATH/demo-0.0.1-SNAPSHOT.jar \
+                       $APP_PATH/demo-0.0.1-SNAPSHOT_$DATE.jar
+                else
+                    echo "No existing JAR found, skipping backup"
+                fi
+                '''
+            }
+        }
 
         stage('Run App') {
             steps {
