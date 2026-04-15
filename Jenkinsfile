@@ -23,12 +23,6 @@ pipeline {
             }
         }
 
-        stage('Copy JAR') {
-            steps {
-                sh 'cp build/libs/demo-0.0.1-SNAPSHOT.jar $APP_PATH/'
-            }
-        }
-
         stage('Stop Old App') {
             steps {
                 sh '''
@@ -52,6 +46,11 @@ pipeline {
                 '''
             }
         }
+        stage('Copy JAR') {
+                    steps {
+                        sh 'cp build/libs/demo-0.0.1-SNAPSHOT.jar $APP_PATH/'
+                    }
+                }
 
         stage('Run App') {
             steps {
