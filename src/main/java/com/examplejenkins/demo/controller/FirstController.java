@@ -15,4 +15,8 @@ public class FirstController {
     public String say(){
         return "Hello Jenkins";
     }
+    @GetMapping("deploy")
+    public String deploy() {
+        return "Deployed Successfully";
+    }
 }
