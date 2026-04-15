@@ -19,4 +19,8 @@ public class FirstController {
     public String deploy() {
         return "Deployed Successfully";
     }
+    @GetMapping("webhook")
+    public String webhook() {
+        return "webhook added Successfully";
+    }
 }
