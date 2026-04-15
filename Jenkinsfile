@@ -78,8 +78,14 @@ EOF
         stage('Check App') {
             steps {
                 sh '''
+                echo "Waiting for application to start..."
                 sleep 10
+
+                echo "Checking running process..."
                 ps -ef | grep demo | grep -v grep || true
+
+                echo "Showing last 100 lines of logs..."
+                tail -n 100 $APP_PATH/app.log || true
                 '''
             }
         }
