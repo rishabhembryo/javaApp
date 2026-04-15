@@ -47,7 +47,7 @@ pipeline {
                echo "Starting application..."
                export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
                export PATH=$JAVA_HOME/bin:$PATH
-               nohup java -jar $APP_PATH/demo-0.0.1-SNAPSHOT.jar > $APP_PATH/app.log 2>&1 &
+               java -jar $APP_PATH/demo-0.0.1-SNAPSHOT.jar > $APP_PATH/app.log 2>&1 &
                '''
            }
        }
