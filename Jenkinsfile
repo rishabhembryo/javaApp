@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/rishabhembryo/javaApp.git'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'chmod +x gradlew'
